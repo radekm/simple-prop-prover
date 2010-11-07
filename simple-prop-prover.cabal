@@ -1,0 +1,44 @@
+name: simple-prop-prover
+version: 0.1
+license: BSD3
+license-file: LICENSE
+copyright: Radek Micek 2010
+author: Radek Micek
+maintainer: Radek Micek <radek.micek@gmail.com>
+stability: experimental
+category: Theorem Provers
+synopsis: Simple theorem prover for propositional logic
+
+description: Uses conflict directed backjumping.
+tested-with: GHC == 6.12.1
+cabal-version: >= 1.4
+build-type: Simple
+
+executable PropProver
+    main-is: PropProver.hs
+    other-modules:
+        CNFParser
+
+    build-depends: base, parsec >= 3.0.1, containers, mtl
+
+    ghc-options: -Wall -fwarn-unused-binds -fwarn-unused-imports
+                 -fwarn-unused-matches -O2
+
+executable PHPGenerator
+    main-is: PHPGenerator.hs
+
+    build-depends: base
+
+    ghc-options: -Wall -fwarn-unused-binds -fwarn-unused-imports
+                 -fwarn-unused-matches -O2
+
+executable ProofChecker
+    main-is: ProofChecker.hs
+    other-modules:
+        CNFParser
+
+    build-depends: base, parsec >= 3.0.1, containers
+
+    ghc-options: -Wall -fwarn-unused-binds -fwarn-unused-imports
+                 -fwarn-unused-matches -O2
+
